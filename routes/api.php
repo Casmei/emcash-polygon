@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\PolygonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('rectangles', [PolygonController::class, 'createRectangle']);
+Route::post('triangles', [PolygonController::class, 'createTriangle']);
+Route::get('total-area', [PolygonController::class, 'calculateTotalArea']);
