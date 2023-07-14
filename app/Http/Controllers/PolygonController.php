@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use App\Services\PolygonService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
