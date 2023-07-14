@@ -9,7 +9,7 @@ use App\Models\Triangle;
 
 class PolygonService
 {
-    public function createRectangle($base, $height)
+    public function createRectangle(float $base, float $height): Rectangle
     {
         return Rectangle::create([
             'base' => $base,
@@ -17,7 +17,7 @@ class PolygonService
         ]);
     }
 
-    public function createTriangle($base, $height)
+    public function createTriangle(float $base, float $height): Triangle
     {
         return Triangle::create([
             'base' => $base,
@@ -25,7 +25,7 @@ class PolygonService
         ]);
     }
 
-    public function calculateTotalArea()
+    public function calculateTotalArea(): float
     {
         $polygons = Polygon::all();
         $totalArea = 0;
@@ -40,7 +40,7 @@ class PolygonService
         return $totalArea;
     }
 
-    private function createPolygonInstance(Polygon $polygon)
+    private function createPolygonInstance(Polygon $polygon): ?Polygon
     {
         $polygonData = [
             'base' => $polygon->base,
