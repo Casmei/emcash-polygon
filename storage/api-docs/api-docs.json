@@ -1,0 +1,231 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "emCash Polygon Test",
+        "description": "Teste emCash | Backend Júnior - Tiago de Castro Lima </br> </br> Esta API permite cadastrar retângulos e triângulos, calcular suas áreas e retornar a soma das áreas de todos os polígonos cadastrados.",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/rectangles": {
+            "post": {
+                "tags": [
+                    "Rectangle"
+                ],
+                "summary": "Create rectangle polygon",
+                "operationId": "f336727a3a8108bc83d3960ce663d905",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "base": {
+                                                "type": "number"
+                                            },
+                                            "height": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "base": 4,
+                                    "height": 5
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "base": {
+                                            "type": "number",
+                                            "example": "4"
+                                        },
+                                        "height": {
+                                            "type": "number",
+                                            "example": "5"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "rectangle"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-14-07T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-14-07T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "fail"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/triangles": {
+            "post": {
+                "tags": [
+                    "Triangle"
+                ],
+                "summary": "Create triangle polygon",
+                "operationId": "1997b69761cd622a417d53fdb2004961",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "base": {
+                                                "type": "number"
+                                            },
+                                            "height": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "base": 4,
+                                    "height": 5
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "base": {
+                                            "type": "number",
+                                            "example": "4"
+                                        },
+                                        "height": {
+                                            "type": "number",
+                                            "example": "5"
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "example": "triangle"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-14-07T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-14-07T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "fail"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/total-area": {
+            "get": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Returns the value of the sum of the areas of all registered polygons.",
+                "operationId": "9b1889c21fab7e6bfea9a064a023723f",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "total_area": {
+                                            "type": "number",
+                                            "example": 20
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "fail"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
