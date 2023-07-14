@@ -4,13 +4,14 @@ namespace App\Services;
 
 use App\Enums\PolygonType;
 use App\Models\Polygon;
+use App\Models\Rectangle;
+use App\Models\Triangle;
 
 class PolygonService
 {
     public function createRectangle($base, $height)
     {
-        return Polygon::create([
-            'type' => PolygonType::RECTANGLE,
+        return Rectangle::create([
             'base' => $base,
             'height' => $height,
         ]);
@@ -18,8 +19,7 @@ class PolygonService
 
     public function createTriangle($base, $height)
     {
-        return Polygon::create([
-            'type' => PolygonType::TRIANGLE,
+        return Triangle::create([
             'base' => $base,
             'height' => $height,
         ]);
@@ -31,20 +31,29 @@ class PolygonService
         $totalArea = 0;
 
         foreach ($polygons as $polygon) {
-            $totalArea += $this->calculateArea($polygon);
+            $polygonInstance = $this->createPolygonInstance($polygon);
+            if ($polygonInstance) {
+                $totalArea += $polygonInstance->calculateArea();
+            }
         }
 
         return $totalArea;
     }
 
-    private function calculateArea($polygon)
+    private function createPolygonInstance(Polygon $polygon)
     {
-        if ($polygon->type === 'rectangle') {
-            return $polygon->base * $polygon->height;
-        } elseif ($polygon->type === 'triangle') {
-            return 0.5 * $polygon->base * $polygon->height;
-        }
+        $polygonData = [
+            'base' => $polygon->base,
+            'height' => $polygon->height,
+        ];
 
-        return 0;
+        switch ($polygon->type) {
+            case PolygonType::RECTANGLE:
+                return new Rectangle($polygonData);
+            case PolygonType::TRIANGLE:
+                return new Triangle($polygonData);
+            default:
+                return null;
+        }
     }
 }
