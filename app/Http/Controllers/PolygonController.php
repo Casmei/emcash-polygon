@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Dtos\CreatePolygonDto;
+use App\Http\Requests\CreatePolygonRequest;
 use App\Services\PolygonService;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class PolygonController extends Controller
@@ -64,12 +65,11 @@ class PolygonController extends Controller
      *      )
      * )
      */
-    public function createRectangle(Request $request)
+    public function createRectangle(CreatePolygonRequest $request)
     {
-        $base = $request->input('base');
-        $height = $request->input('height');
-
-        $rectangle = $this->polygonService->createRectangle($base, $height);
+        $rectangle = $this->polygonService->createRectangle(
+            CreatePolygonDto::makeFromRequest($request)
+        );
 
         return response()->json($rectangle, 201);
     }
@@ -122,12 +122,11 @@ class PolygonController extends Controller
      *      )
      * )
      */
-    public function createTriangle(Request $request)
+    public function createTriangle(CreatePolygonRequest $request)
     {
-        $base = $request->input('base');
-        $height = $request->input('height');
-
-        $triangle = $this->polygonService->createTriangle($base, $height);
+        $triangle = $this->polygonService->createTriangle(
+            CreatePolygonDto::makeFromRequest($request)
+        );
 
         return response()->json($triangle, 201);
     }

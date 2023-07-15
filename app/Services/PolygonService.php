@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Dtos\CreatePolygonDto;
 use App\Enums\PolygonType;
 use App\Models\Polygon;
 use App\Models\Rectangle;
@@ -9,19 +10,19 @@ use App\Models\Triangle;
 
 class PolygonService
 {
-    public function createRectangle(float $base, float $height): Rectangle
+    public function createRectangle(CreatePolygonDto $dto): Rectangle
     {
         return Rectangle::create([
-            'base' => $base,
-            'height' => $height,
+            'base' => $dto->base,
+            'height' => $dto->height
         ]);
     }
 
-    public function createTriangle(float $base, float $height): Triangle
+    public function createTriangle(CreatePolygonDto $dto): Triangle
     {
         return Triangle::create([
-            'base' => $base,
-            'height' => $height,
+            'base' => $dto->base,
+            'height' => $dto->height
         ]);
     }
 
