@@ -9,7 +9,7 @@
         "/api/rectangles": {
             "post": {
                 "tags": [
-                    "Rectangle"
+                    "Polygon"
                 ],
                 "summary": "Create rectangle polygon",
                 "operationId": "f336727a3a8108bc83d3960ce663d905",
@@ -98,7 +98,7 @@
         "/api/triangles": {
             "post": {
                 "tags": [
-                    "Triangle"
+                    "Polygon"
                 ],
                 "summary": "Create triangle polygon",
                 "operationId": "1997b69761cd622a417d53fdb2004961",

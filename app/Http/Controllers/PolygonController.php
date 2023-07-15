@@ -21,7 +21,7 @@ class PolygonController extends Controller
      * Create rectangle polygon
      * @OA\Post (
      *     path="/api/rectangles",
-     *     tags={"Rectangle"},
+     *     tags={"Polygon"},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -78,7 +78,7 @@ class PolygonController extends Controller
      * Create triangle polygon
      * @OA\Post (
      *     path="/api/triangles",
-     *     tags={"Triangle"},
+     *     tags={"Polygon"},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
