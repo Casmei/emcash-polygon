@@ -10,7 +10,74 @@ class PolygonTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCreateRectangle()
+
+    public function testCreateRectangleWithInvalidBase()
+    {
+        $response = $this->postJson('/api/rectangles', [
+            'base' => 'invalid',
+            'height' => 3,
+        ]);
+
+        $response->assertStatus(422)
+            ->assertInvalid('base');
+    }
+
+    public function testCreateRectangleWithInvalidHeight()
+    {
+        $response = $this->postJson('/api/rectangles', [
+            'base' => 1,
+            'height' => 'invalid',
+        ]);
+
+        $response->assertStatus(422)
+            ->assertInvalid('height');
+    }
+
+    public function testCreateRectangleWithInvalidBody()
+    {
+        $response = $this->postJson('/api/rectangles', [
+            'base' => 'invalid',
+            'height' => 'invalid',
+        ]);
+
+        $response->assertStatus(422)
+            ->assertInvalid('base','height');
+    }
+
+        public function testCreateTriangleWithInvalidBase()
+    {
+        $response = $this->postJson('/api/triangles', [
+            'base' => 'invalid',
+            'height' => 3,
+        ]);
+
+        $response->assertStatus(422)
+            ->assertInvalid('base');
+    }
+
+    public function testCreateTriangleWithInvalidHeight()
+    {
+        $response = $this->postJson('/api/triangles', [
+            'base' => 1,
+            'height' => 'invalid',
+        ]);
+
+        $response->assertStatus(422)
+            ->assertInvalid('height');
+    }
+
+    public function testCreateTriangleWithInvalidBody()
+    {
+        $response = $this->postJson('/api/triangles', [
+            'base' => 'invalid',
+            'height' => 'invalid',
+        ]);
+
+        $response->assertStatus(422)
+            ->assertInvalid('base','height');
+    }
+
+    public function testCreateRectangleWithValidRequestBody()
     {
         $response = $this->post('/api/rectangles', [
             'base' => 5,
@@ -25,7 +92,7 @@ class PolygonTest extends TestCase
             ]);
     }
 
-    public function testCreateTriangle()
+    public function testCreateTriangleWithValidRequestBody()
     {
         $response = $this->post('/api/triangles', [
             'base' => 4,
@@ -42,13 +109,13 @@ class PolygonTest extends TestCase
 
     public function testCalculateTotalArea()
     {
-        Polygon::factory()->create([
+        Polygon::create([
             'type' => 'rectangle',
             'base' => 5,
             'height' => 3,
         ]);
 
-        Polygon::factory()->create([
+        Polygon::create([
             'type' => 'triangle',
             'base' => 4,
             'height' => 2,
@@ -58,7 +125,7 @@ class PolygonTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJson([
-                'total_area' => 17,
+                'total_area' => 19,
             ]);
     }
 }
