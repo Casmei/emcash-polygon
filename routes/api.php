@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PolygonController;
+use App\Http\Controllers\RectangleController;
+use App\Http\Controllers\TriangleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('rectangles', [PolygonController::class, 'createRectangle']);
-Route::post('triangles', [PolygonController::class, 'createTriangle']);
+Route::post('rectangles', [RectangleController::class, 'store']);
+Route::post('triangles', [TriangleController::class, 'store']);
 Route::get('total-area', [PolygonController::class, 'calculateTotalArea']);
