@@ -8,13 +8,16 @@ use Exception;
 
 class RectangleService
 {
-    public function create(CreateRectangleDto $dto): Rectangle
+    public function create(CreateRectangleDto $data)
     {
         try {
             $rectangle = Rectangle::create([
-                'base' => $dto->base,
-                'height' => $dto->height
+                'base' => $data->base,
+                'height' => $data->height
             ]);
+
+            $rectangle->save();
+
             return $rectangle;
         } catch (Exception $e) {
             throw new Exception('Error to generate new rectangle: ' . $e->getMessage());
