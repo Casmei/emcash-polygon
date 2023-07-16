@@ -6,184 +6,6 @@
         "version": "1.0"
     },
     "paths": {
-        "/api/rectangles": {
-            "post": {
-                "tags": [
-                    "Polygon"
-                ],
-                "summary": "Create rectangle polygon",
-                "operationId": "f336727a3a8108bc83d3960ce663d905",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "": {
-                                        "properties": {
-                                            "base": {
-                                                "type": "number"
-                                            },
-                                            "height": {
-                                                "type": "number"
-                                            }
-                                        },
-                                        "type": "object"
-                                    }
-                                },
-                                "type": "object",
-                                "example": {
-                                    "base": 4,
-                                    "height": 5
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "id": {
-                                            "type": "number",
-                                            "example": 1
-                                        },
-                                        "base": {
-                                            "type": "number",
-                                            "example": "4"
-                                        },
-                                        "height": {
-                                            "type": "number",
-                                            "example": "5"
-                                        },
-                                        "type": {
-                                            "type": "string",
-                                            "example": "rectangle"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-14-07T09:25:53.000000Z"
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-14-07T09:25:53.000000Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "invalid",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "msg": {
-                                            "type": "string",
-                                            "example": "fail"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/triangles": {
-            "post": {
-                "tags": [
-                    "Polygon"
-                ],
-                "summary": "Create triangle polygon",
-                "operationId": "1997b69761cd622a417d53fdb2004961",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "": {
-                                        "properties": {
-                                            "base": {
-                                                "type": "number"
-                                            },
-                                            "height": {
-                                                "type": "number"
-                                            }
-                                        },
-                                        "type": "object"
-                                    }
-                                },
-                                "type": "object",
-                                "example": {
-                                    "base": 4,
-                                    "height": 5
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "id": {
-                                            "type": "number",
-                                            "example": 1
-                                        },
-                                        "base": {
-                                            "type": "number",
-                                            "example": "4"
-                                        },
-                                        "height": {
-                                            "type": "number",
-                                            "example": "5"
-                                        },
-                                        "type": {
-                                            "type": "string",
-                                            "example": "triangle"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-14-07T09:25:53.000000Z"
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-14-07T09:25:53.000000Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "invalid",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "msg": {
-                                            "type": "string",
-                                            "example": "fail"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/api/total-area": {
             "get": {
                 "tags": [
@@ -217,6 +39,254 @@
                                         "msg": {
                                             "type": "string",
                                             "example": "fail"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/rectangles": {
+            "post": {
+                "tags": [
+                    "Rectangle"
+                ],
+                "summary": "Create rectangle polygon",
+                "operationId": "1cd643a9b06b529c5f29916f6098c4d9",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "base": {
+                                                "type": "number"
+                                            },
+                                            "height": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "base": 4,
+                                    "height": 5
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "base": {
+                                            "type": "number",
+                                            "example": "4"
+                                        },
+                                        "height": {
+                                            "type": "number",
+                                            "example": "5"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-14-07T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-14-07T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Error to generate new rectangle: Undefined property: App\\\\Dtos\\\\RectangleDto\\\\CreateRectangleDto::$heigh"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "InvalidArgumentException",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The base field is required. (and 1 more error)"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "base": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The base field is required."
+                                                    }
+                                                },
+                                                "height": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The height field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/triangles": {
+            "post": {
+                "tags": [
+                    "Triangle"
+                ],
+                "summary": "Create triangle polygon",
+                "operationId": "e936096a60f0e3453b29eb9daebb3d56",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "base": {
+                                                "type": "number"
+                                            },
+                                            "side1": {
+                                                "type": "number"
+                                            },
+                                            "side2": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "base": 5,
+                                    "side1": 5,
+                                    "side2": 5
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "base": {
+                                            "type": "number",
+                                            "example": "4"
+                                        },
+                                        "side1": {
+                                            "type": "number",
+                                            "example": "5"
+                                        },
+                                        "side2": {
+                                            "type": "number",
+                                            "example": "5"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-14-07T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-14-07T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Error to generate new triangle: Undefined property: App\\\\Dtos\\\\TriangleDto\\\\CreateTriangleDto::$side"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "InvalidArgumentException",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The base field is required. (and 1 more error)"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "base": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The base field is required."
+                                                    }
+                                                },
+                                                "height": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The height field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
