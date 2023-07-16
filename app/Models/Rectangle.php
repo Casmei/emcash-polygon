@@ -19,7 +19,7 @@ class Rectangle extends Model implements PolygonInterface
         return $this->base * $this->height;
     }
 
-    public function isValid(): bool
+    private function isValid(): bool
     {
         return ($this->base > 0) && ($this->height > 0);
     }

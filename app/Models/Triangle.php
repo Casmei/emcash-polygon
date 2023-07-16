@@ -27,7 +27,7 @@ class Triangle extends Model implements PolygonInterface
         return $area;
     }
 
-    public function isValid(): bool
+    private function isValid(): bool
     {
         $sum1 = $this->base + $this->side1;
         $sum2 = $this->base + $this->side2;
