@@ -18,6 +18,6 @@ class PolygonService
             $totalArea += $polygon->calculateArea();
         }
 
-        return $totalArea;
+        return sprintf("%.3f", $totalArea);
     }
 }
