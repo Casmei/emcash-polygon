@@ -85,6 +85,7 @@ class RectangleController extends Controller
             $rectangle = $this->rectangleService->create(
                 CreateRectangleDto::makeFromRequest($request)
             );
+
             return response()->json($rectangle, 201);
         } catch (Exception $e) {
             return response()->json(['error' => $e->getMessage()], 400);
