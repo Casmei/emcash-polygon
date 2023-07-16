@@ -10,7 +10,7 @@ Para iniciar o projeto, basta abrir o terminal em sua máquina e executar os seg
     # Gere as variaveis de ambiente do projeto
     > cp .env.example .env
 ```
-Esse projeto é disposto pelo docker, caso deseje seguir por esse caminho, siga os comandos a seguir:
+Esse projeto utiliza o docker, caso deseje seguir por esse caminho de ambiente, siga os comandos a seguir:
 ### Iniciando a aplicação com Docker
 ```sh
     # Construa as imagens da API
