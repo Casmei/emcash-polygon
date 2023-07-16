@@ -2,23 +2,21 @@
 
 namespace App\Models;
 
-use App\Enums\PolygonType;
+use App\Interfaces\PolygonInterface;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Triangle extends Polygon
+class Triangle extends Model implements PolygonInterface
 {
+    use HasFactory;
+    protected $table = 'triangles';
 
-    //model booting
-    protected static function boot()
+    protected $fillable = ['base', 'side1', 'side2'];
+
+    function calculateArea(): float
     {
-        parent::boot();
-
-        static::creating(function ($triangle) {
-            $triangle->type = PolygonType::TRIANGLE;
-        });
-    }
-
-    public function calculateArea()
-    {
-        return 0.5 * $this->base * $this->height;
+        $perimeterHalf = ($this->base + $this->side1 + $this->side2) / 2;
+        $area = sqrt($perimeterHalf * ($perimeterHalf - $this->base) * ($perimeterHalf - $this->side1) * ($perimeterHalf - $this->side2));
+        return $area;
     }
 }

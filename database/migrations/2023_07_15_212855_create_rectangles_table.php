@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\PolygonType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('polygons', function (Blueprint $table) {
+        Schema::create('rectangles', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', [PolygonType::RECTANGLE, PolygonType::TRIANGLE])->nullable();
             $table->float('base');
             $table->float('height');
             $table->timestamps();
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('polygons');
+        Schema::dropIfExists('rectangles');
     }
 };

@@ -2,22 +2,18 @@
 
 namespace App\Models;
 
-use App\Enums\PolygonType;
+use App\Interfaces\PolygonInterface;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Rectangle extends Polygon
+class Rectangle extends Model implements PolygonInterface
 {
+    use HasFactory;
+    protected $table = 'rectangles';
 
-    //model booting
-    protected static function boot()
-    {
-        parent::boot();
+    protected $fillable = ['base', 'height'];
 
-        static::creating(function ($rectangle) {
-            $rectangle->type = PolygonType::RECTANGLE;
-        });
-    }
-
-    public function calculateArea()
+    function calculateArea(): float
     {
         return $this->base * $this->height;
     }
