@@ -13,31 +13,6 @@ class PolygonServiceTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCreateRectangle()
-    {
-        $dto = new CreatePolygonDto(5,3);
-
-        $service = new PolygonService();
-
-        $rectangle = $service->createRectangle($dto);
-
-        $this->assertInstanceOf(Rectangle::class, $rectangle);
-        $this->assertEquals(5, $rectangle->base);
-        $this->assertEquals(3, $rectangle->height);
-    }
-
-    public function testCreateTriangle()
-    {
-        $dto = new CreatePolygonDto(4,2);
-
-        $service = new PolygonService();
-        $triangle = $service->createTriangle($dto);
-
-        $this->assertInstanceOf(Triangle::class, $triangle);
-        $this->assertEquals(4, $triangle->base);
-        $this->assertEquals(2, $triangle->height);
-    }
-
     public function testCalculateTotalAreaWithNoPolygons()
     {
         $service = new PolygonService();
@@ -50,17 +25,20 @@ class PolygonServiceTest extends TestCase
     {
         Rectangle::create([
             'base' => 5,
-            'height' => 3,
-        ]);
+            'height' => 5,
+        ])->save();
 
         Triangle::create([
-            'base' => 4,
-            'height' => 2,
-        ]);
+            'base' => 6,
+            'side1' => 8,
+            'side2' => 10,
+        ])->save();
+
+        $expectedTotalArea = 49;
 
         $service = new PolygonService();
         $totalArea = $service->calculateTotalArea();
 
-        $this->assertEquals(19, $totalArea);
+        $this->assertEquals($expectedTotalArea, $totalArea);
     }
 }
