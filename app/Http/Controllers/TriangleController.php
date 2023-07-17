@@ -88,11 +88,11 @@ class TriangleController extends Controller
     public function store(CreateTriangleRequest $request)
     {
         try {
-            $rectangle = $this->triangleService->create(
+            $triangle = $this->triangleService->create(
                 CreateTriangleDto::makeFromRequest($request)
             );
 
-            return response()->json($rectangle, 201);
+            return response()->json($triangle, 201);
         } catch (Exception $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
