@@ -19,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::post('rectangles', [RectangleController::class, 'store']);
 Route::post('triangles', [TriangleController::class, 'store']);
 Route::get('total-area', [PolygonController::class, 'calculateTotalArea']);
+Route::get('/ping', function () {
+    return response()->json(['msg' => 'pong'], 200);
+});
