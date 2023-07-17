@@ -18,8 +18,11 @@ Siga as instruções abaixo para configurar e executar o projeto em sua máquina
     # Acesse a pasta do projeto
     > cd emcash-polygon
 
-    # Crie o arquivo de configuração das variáveis de ambiente
+    # Crie o arquivo de configuração das variáveis de ambiente (Linux)
     > cp .env.example .env
+
+    # Crie o arquivo de configuração das variáveis de ambiente (Windows)
+    > copy .env.example .env
 ```
 ### Iniciando com Docker (😊 Happy path )
 Se você tiver o Docker instalado em sua máquina, pode seguir estes passos:
