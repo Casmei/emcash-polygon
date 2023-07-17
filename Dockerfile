@@ -7,6 +7,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 RUN composer install
-COPY ./entrypoint.sh /tmp
+COPY --chmod=700 ./entrypoint.sh /tmp
 
 ENTRYPOINT ["/tmp/entrypoint.sh"]
