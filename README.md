@@ -39,7 +39,7 @@ Se você não tiver o Docker instalado, siga estes passos:
     # Gere a chave de segurança requisitada pelo Laravel
     > php artisan key:generate
 
-    # Execute as migrações do banco de dados
+    # Execute as migrações do banco de dados ( Valide nas envs as credenciais de conexão com o banco caso dê erro )
     > php artisan migrate
 
     # Inicie o sistema
